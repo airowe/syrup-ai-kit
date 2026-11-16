@@ -1,0 +1,120 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    #package-body { position: absolute; inset: 0; }
+    #package-chips { position: absolute; left: 70px; top: 330px; display: flex; gap: 16px; }
+    .package-chip { padding: 14px 26px; border-radius: 999px; background: #3a3026; color: #f4ead8; font: 700 32px/1 "Inter", sans-serif; }
+    .package-card { position: absolute; left: 70px; width: 940px; padding: 36px 42px; border-radius: 30px; background: #f4ead8; color: #2a2118; }
+    .package-card-label { font: 700 28px/1.2 "Inter", sans-serif; color: #8a6a4a; letter-spacing: 0.06em; }
+    .package-card-value { margin-top: 12px; font: 800 60px/1.05 "Outfit", sans-serif; letter-spacing: -0.02em; }
+    #package-smooth { top: 450px; box-shadow: inset 12px 0 0 #2f8f86; }
+    #package-richer { top: 690px; box-shadow: inset 12px 0 0 #e0892c; }
+    #package-open { position: absolute; left: 70px; top: 330px; width: 940px; }
+    .package-open-pill { display: inline-block; padding: 16px 30px; border-radius: 999px; background: #e0892c; color: #1b1712; font: 800 52px/1 "Outfit", sans-serif; }
+    .package-open-note { margin-top: 18px; color: #cbb89c; font: 600 32px/1.3 "JetBrains Mono", monospace; }
+    #package-hand { top: 540px; }
+    #package-hand .package-card-value { font-size: 44px; }
+    #package-agent { position: absolute; left: 70px; top: 760px; width: 940px; padding: 30px 40px; border-radius: 30px; background: #0f0c09; border: 3px solid #3a3026; }
+    .package-agent-label { font: 700 28px/1.2 "Inter", sans-serif; color: #cbb89c; letter-spacing: 0.06em; }
+    .package-cmd { margin-top: 16px; font: 500 30px/1.3 "JetBrains Mono", monospace; color: #f4ead8; white-space: pre; }
+    .package-cmd b { color: #e0892c; font-weight: 700; }
+    #package-canvas { position: absolute; left: 0; top: 0; }
+    #package-title { width: 940px; height: 100px; color: #f4ead8; font: 800 84px/1 "Outfit", sans-serif; letter-spacing: -0.02em; }
+    #package-title span { color: #e0892c; }
+  </style>
+  <div id="root" data-composition-id="package" data-width="1080" data-height="1920">
+    <div id="package-body" class="clip" data-start="0" data-duration="13.651">
+      <div id="package-chips" class="clip" data-start="0" data-duration="8.4">
+        <div class="package-chip">Native iOS</div>
+        <div class="package-chip">React Native</div>
+        <div class="package-chip">Expo</div>
+      </div>
+      <div id="package-smooth" class="package-card clip" data-start="0" data-duration="8.4">
+        <div class="package-card-label">FOR DEVELOPERS</div>
+        <div class="package-card-value">Smooth Siri adoption</div>
+        
+      </div>
+      <div id="package-richer" class="package-card clip" data-start="0" data-duration="8.4">
+        <div class="package-card-label">FOR YOUR USERS</div>
+        <div class="package-card-value">A much richer experience</div>
+        
+      </div>
+      <div id="package-open" class="clip" data-start="8.1" data-duration="5.551">
+        <div class="package-open-pill">Open source</div>
+        <div class="package-open-note">MIT · github.com/airowe/syrup-ai-kit</div>
+      </div>
+      <div id="package-hand" class="package-card clip" data-start="8.1" data-duration="5.551">
+        <div class="package-card-label">ADD IT BY HAND</div>
+        <div class="package-card-value">Swift package or Expo plugin</div>
+        
+      </div>
+      <div id="package-agent" class="clip" data-start="8.1" data-duration="5.551">
+        <div class="package-agent-label">OR GIVE IT TO YOUR CODING AGENT</div>
+        <div class="package-cmd"><b>&gt;</b> /plugin marketplace add airowe/syrup-ai-kit</div>
+        <div class="package-cmd"><b>&gt;</b> /plugin install syrup-ai-kit@syrup-ai-kit</div>
+      </div>
+    </div>
+    <canvas id="package-canvas" width="1080" height="1920" layoutsubtree>
+      <div id="package-title">Syrup <span>AI Kit</span></div>
+    </canvas>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const land = (sel, at) => {
+      tl.fromTo(sel, { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "back.out(1.5)" }, at);
+    };
+    tl.fromTo("#package-chips .package-chip", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: "power2.out", stagger: 0.12 }, 2.3);
+    land("#package-smooth", 3.6);
+    land("#package-richer", 5.4);
+    tl.to(["#package-chips", "#package-smooth", "#package-richer"], { opacity: 0, y: -20, duration: 0.3, ease: "power2.in" }, 8.05);
+    tl.fromTo("#package-open .package-open-pill", { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: "back.out(2)", transformOrigin: "left center" }, 8.4);
+    tl.fromTo("#package-open .package-open-note", { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: "power2.out" }, 8.65);
+    land("#package-hand", 10.0);
+    tl.fromTo("#package-agent", { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "back.out(1.5)" }, 11.5);
+    tl.fromTo("#package-agent .package-cmd", { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 0.5, ease: "none", stagger: 0.45 }, 11.75);
+    tl.to({}, { duration: 13.651 }, 0);
+
+    const host = document.querySelector('[data-composition-id="package"][data-start]');
+    const START = Number(host.dataset.start);
+    const DURATION = Number(host.dataset.duration);
+    const canvas = document.getElementById("package-canvas");
+    const title = document.getElementById("package-title");
+    const ctx = canvas.getContext("2d");
+    let painted = null;
+
+    function meltIn(el, x0, y0, width, t, start, duration) {
+      const p = Math.min(Math.max((t - start) / duration, 0), 1);
+      if (p <= 0) return;
+      const STRIPS = 40;
+      const strip = width / STRIPS;
+      for (let i = 0; i < STRIPS; i++) {
+        const delay = ((Math.sin(i * 2.3) + 1) / 2) * 0.4;
+        const q = Math.min(Math.max((p - delay) / 0.6, 0), 1);
+        if (q <= 0) continue;
+        const settle = 1 - Math.pow(1 - q, 3);
+        ctx.save();
+        ctx.beginPath();
+        ctx.rect(x0 + i * strip, 0, strip + 0.6, 1920);
+        ctx.clip();
+        ctx.globalAlpha = Math.min(1, q * 1.6);
+        ctx.drawElementImage(el, x0, y0 - 54 * (1 - settle));
+        ctx.restore();
+      }
+    }
+
+    canvas.onpaint = () => {
+      const t = tl.time();
+      ctx.reset();
+      meltIn(title, 70, 190, 940, t, 0.85, 1.1);
+      painted?.();
+    };
+
+    window.addEventListener("hf-seek", (e) => {
+      const time = e.detail.time;
+      if (time < START || time >= START + DURATION) return;
+      e.detail.waitUntil(new Promise((resolve) => { painted = resolve; canvas.requestPaint(); setTimeout(resolve, 400); }));
+    });
+    canvas.requestPaint();
+    window.__timelines["package"] = tl;
+  </script>
+</template>

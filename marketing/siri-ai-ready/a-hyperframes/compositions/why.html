@@ -1,0 +1,43 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    #why-head { position: absolute; left: 90px; top: 190px; width: 900px; color: #f4ead8; font: 800 72px/1.05 "Outfit", sans-serif; letter-spacing: -0.02em; }
+    #why-head em { font-style: normal; color: #e0892c; }
+    .why-card { position: absolute; left: 90px; width: 900px; padding: 40px 50px; border-radius: 36px; background: #f4ead8; color: #2a2118; }
+    .why-label { font: 700 30px/1 "Inter", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #8a6a4a; }
+    .why-value { margin-top: 18px; font: 800 66px/1.05 "Outfit", sans-serif; letter-spacing: -0.02em; }
+    #why-now { top: 330px; box-shadow: inset 12px 0 0 #2f8f86; }
+    #why-tools { top: 580px; box-shadow: inset 12px 0 0 #e0892c; }
+    #why-tools .why-value em { font-style: normal; color: #b5651d; }
+    #why-warn { position: absolute; left: 90px; top: 900px; width: 900px; color: #f4ead8; font: 800 76px/1.05 "Outfit", sans-serif; letter-spacing: -0.02em; }
+    #why-while { position: absolute; left: 90px; top: 1000px; color: #cbb89c; font: 600 44px/1.2 "Inter", sans-serif; }
+  </style>
+  <div id="root" data-composition-id="why" data-width="1080" data-height="1920">
+    <div id="why-head" class="clip" data-start="0" data-duration="11.355">Apple's rebuilding <em>Siri</em></div>
+    <div id="why-now" class="why-card clip" data-start="0" data-duration="11.355">
+      <div class="why-label">Siri AI developer preview</div>
+      <div class="why-value">Open to developers now</div>
+      
+    </div>
+    <div id="why-tools" class="why-card clip" data-start="0" data-duration="11.355">
+      <div class="why-label">It can call your app's tools</div>
+      <div class="why-value"><em>If</em> you set them up right</div>
+      
+    </div>
+    <div id="why-warn" class="clip" data-start="0" data-duration="11.355">Most developers won't.</div>
+    <div id="why-while" class="clip" data-start="0" data-duration="11.355">At least for a while.</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const land = (sel, at) => {
+      tl.fromTo(sel, { y: 70, opacity: 0, rotation: -2 }, { y: 0, opacity: 1, rotation: 0, duration: 0.5, ease: "back.out(1.6)" }, at);
+    };
+    tl.fromTo("#why-head", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" }, 0.25);
+    land("#why-now", 3.2);
+    land("#why-tools", 5.45);
+    tl.fromTo("#why-warn", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 8.3);
+    tl.fromTo("#why-while", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 9.6);
+    tl.to({}, { duration: 11.355 }, 0);
+    window.__timelines["why"] = tl;
+  </script>
+</template>

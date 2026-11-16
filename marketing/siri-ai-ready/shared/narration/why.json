@@ -1,0 +1,351 @@
+{
+ "audio_url": "https://resource2.heygen.ai/text_to_speech/1a6ff32a1c3240ab874d33136ab2335f/776f9d2ff401499a8f1f2bcb4ca46004/id=cccc7947-2eeb-484e-bc2c-9fa5f4b63b23.mp3",
+ "duration": 10.605714285714285,
+ "engine": "orca",
+ "request_id": "8e045ea3d8024dd3a3687a5aeb42bc75",
+ "word_timestamps": [
+  {
+   "end": 0.0,
+   "start": 0.0,
+   "word": "<start>"
+  },
+  {
+   "end": 0.725,
+   "start": 0.256,
+   "word": "Apple's"
+  },
+  {
+   "end": 1.0667,
+   "start": 0.768,
+   "word": "rebuilding"
+  },
+  {
+   "end": 1.408,
+   "start": 1.237,
+   "word": "it"
+  },
+  {
+   "end": 1.621,
+   "start": 1.493,
+   "word": "as"
+  },
+  {
+   "end": 1.9627,
+   "start": 1.707,
+   "word": "Siri"
+  },
+  {
+   "end": 2.837,
+   "start": 2.133,
+   "word": "AI."
+  },
+  {
+   "end": 3.328,
+   "start": 3.157,
+   "word": "It's"
+  },
+  {
+   "end": 3.456,
+   "start": 3.371,
+   "word": "in"
+  },
+  {
+   "end": 3.8827,
+   "start": 3.499,
+   "word": "preview"
+  },
+  {
+   "end": 4.053,
+   "start": 3.925,
+   "word": "for"
+  },
+  {
+   "end": 4.3947,
+   "start": 4.096,
+   "word": "developers"
+  },
+  {
+   "end": 4.907,
+   "start": 4.565,
+   "word": "now,"
+  },
+  {
+   "end": 5.1627,
+   "start": 5.035,
+   "word": "and"
+  },
+  {
+   "end": 5.2907,
+   "start": 5.205,
+   "word": "it"
+  },
+  {
+   "end": 5.4187,
+   "start": 5.333,
+   "word": "can"
+  },
+  {
+   "end": 5.632,
+   "start": 5.461,
+   "word": "call"
+  },
+  {
+   "end": 5.8027,
+   "start": 5.675,
+   "word": "your"
+  },
+  {
+   "end": 6.144,
+   "start": 5.845,
+   "word": "app's"
+  },
+  {
+   "end": 6.592,
+   "start": 6.187,
+   "word": "tools,"
+  },
+  {
+   "end": 6.869,
+   "start": 6.827,
+   "word": "if"
+  },
+  {
+   "end": 6.997,
+   "start": 6.912,
+   "word": "you"
+  },
+  {
+   "end": 7.125,
+   "start": 7.04,
+   "word": "set"
+  },
+  {
+   "end": 7.253,
+   "start": 7.168,
+   "word": "them"
+  },
+  {
+   "end": 7.381,
+   "start": 7.296,
+   "word": "up"
+  },
+  {
+   "end": 7.936,
+   "start": 7.467,
+   "word": "right."
+  },
+  {
+   "end": 8.448,
+   "start": 8.277,
+   "word": "Most"
+  },
+  {
+   "end": 8.832,
+   "start": 8.576,
+   "word": "developers"
+  },
+  {
+   "end": 9.387,
+   "start": 9.003,
+   "word": "won't,"
+  },
+  {
+   "end": 9.6,
+   "start": 9.557,
+   "word": "at"
+  },
+  {
+   "end": 9.7707,
+   "start": 9.643,
+   "word": "least"
+  },
+  {
+   "end": 10.027,
+   "start": 9.899,
+   "word": "for"
+  },
+  {
+   "end": 10.112,
+   "start": 10.069,
+   "word": "a"
+  },
+  {
+   "end": 10.362585034013605,
+   "start": 10.112,
+   "word": "while."
+  },
+  {
+   "end": 10.605714285714285,
+   "start": 10.605714285714285,
+   "word": "<end>"
+  }
+ ],
+ "words": [
+  {
+   "end": 0.725,
+   "start": 0.256,
+   "word": "Apple's"
+  },
+  {
+   "end": 1.0667,
+   "start": 0.768,
+   "word": "rebuilding"
+  },
+  {
+   "end": 1.408,
+   "start": 1.237,
+   "word": "it"
+  },
+  {
+   "end": 1.621,
+   "start": 1.493,
+   "word": "as"
+  },
+  {
+   "end": 1.9627,
+   "start": 1.707,
+   "word": "Siri"
+  },
+  {
+   "end": 2.837,
+   "start": 2.133,
+   "word": "AI."
+  },
+  {
+   "end": 3.328,
+   "start": 3.157,
+   "word": "It's"
+  },
+  {
+   "end": 3.456,
+   "start": 3.371,
+   "word": "in"
+  },
+  {
+   "end": 3.8827,
+   "start": 3.499,
+   "word": "preview"
+  },
+  {
+   "end": 4.053,
+   "start": 3.925,
+   "word": "for"
+  },
+  {
+   "end": 4.3947,
+   "start": 4.096,
+   "word": "developers"
+  },
+  {
+   "end": 4.907,
+   "start": 4.565,
+   "word": "now,"
+  },
+  {
+   "end": 5.1627,
+   "start": 5.035,
+   "word": "and"
+  },
+  {
+   "end": 5.2907,
+   "start": 5.205,
+   "word": "it"
+  },
+  {
+   "end": 5.4187,
+   "start": 5.333,
+   "word": "can"
+  },
+  {
+   "end": 5.632,
+   "start": 5.461,
+   "word": "call"
+  },
+  {
+   "end": 5.8027,
+   "start": 5.675,
+   "word": "your"
+  },
+  {
+   "end": 6.144,
+   "start": 5.845,
+   "word": "app's"
+  },
+  {
+   "end": 6.592,
+   "start": 6.187,
+   "word": "tools,"
+  },
+  {
+   "end": 6.869,
+   "start": 6.827,
+   "word": "if"
+  },
+  {
+   "end": 6.997,
+   "start": 6.912,
+   "word": "you"
+  },
+  {
+   "end": 7.125,
+   "start": 7.04,
+   "word": "set"
+  },
+  {
+   "end": 7.253,
+   "start": 7.168,
+   "word": "them"
+  },
+  {
+   "end": 7.381,
+   "start": 7.296,
+   "word": "up"
+  },
+  {
+   "end": 7.936,
+   "start": 7.467,
+   "word": "right."
+  },
+  {
+   "end": 8.448,
+   "start": 8.277,
+   "word": "Most"
+  },
+  {
+   "end": 8.832,
+   "start": 8.576,
+   "word": "developers"
+  },
+  {
+   "end": 9.387,
+   "start": 9.003,
+   "word": "won't,"
+  },
+  {
+   "end": 9.6,
+   "start": 9.557,
+   "word": "at"
+  },
+  {
+   "end": 9.7707,
+   "start": 9.643,
+   "word": "least"
+  },
+  {
+   "end": 10.027,
+   "start": 9.899,
+   "word": "for"
+  },
+  {
+   "end": 10.112,
+   "start": 10.069,
+   "word": "a"
+  },
+  {
+   "end": 10.362585034013605,
+   "start": 10.112,
+   "word": "while."
+  }
+ ],
+ "text": "Apple's rebuilding it as Siri AI. It's in preview for developers now, and it can call your app's tools, if you set them up right. Most developers won't, at least for a while."
+}

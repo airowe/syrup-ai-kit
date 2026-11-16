@@ -1,0 +1,261 @@
+{
+ "audio_url": "https://resource2.heygen.ai/text_to_speech/1a6ff32a1c3240ab874d33136ab2335f/776f9d2ff401499a8f1f2bcb4ca46004/id=a5daa0a1-8fee-4980-8f54-6b5844afc4e3.mp3",
+ "duration": 8.489795918367347,
+ "engine": "orca",
+ "request_id": "7d3e3a73b1f847f38795fbf72650a127",
+ "word_timestamps": [
+  {
+   "end": 0.0,
+   "start": 0.0,
+   "word": "<start>"
+  },
+  {
+   "end": 0.469,
+   "start": 0.299,
+   "word": "Its"
+  },
+  {
+   "end": 0.981,
+   "start": 0.512,
+   "word": "discovery"
+  },
+  {
+   "end": 1.365,
+   "start": 1.109,
+   "word": "skill"
+  },
+  {
+   "end": 1.749,
+   "start": 1.493,
+   "word": "reads"
+  },
+  {
+   "end": 1.92,
+   "start": 1.835,
+   "word": "your"
+  },
+  {
+   "end": 2.304,
+   "start": 1.963,
+   "word": "app's"
+  },
+  {
+   "end": 2.56,
+   "start": 2.347,
+   "word": "screens"
+  },
+  {
+   "end": 2.816,
+   "start": 2.773,
+   "word": "and"
+  },
+  {
+   "end": 3.072,
+   "start": 2.859,
+   "word": "data"
+  },
+  {
+   "end": 3.669,
+   "start": 3.243,
+   "word": "layer,"
+  },
+  {
+   "end": 4.181,
+   "start": 3.883,
+   "word": "finds"
+  },
+  {
+   "end": 4.309,
+   "start": 4.224,
+   "word": "the"
+  },
+  {
+   "end": 4.5227,
+   "start": 4.352,
+   "word": "actions"
+  },
+  {
+   "end": 4.992,
+   "start": 4.821,
+   "word": "people"
+  },
+  {
+   "end": 5.205,
+   "start": 5.12,
+   "word": "would"
+  },
+  {
+   "end": 5.419,
+   "start": 5.248,
+   "word": "ask"
+  },
+  {
+   "end": 5.76,
+   "start": 5.547,
+   "word": "Siri"
+  },
+  {
+   "end": 6.165,
+   "start": 5.845,
+   "word": "for,"
+  },
+  {
+   "end": 6.656,
+   "start": 6.315,
+   "word": "and"
+  },
+  {
+   "end": 6.869,
+   "start": 6.699,
+   "word": "writes"
+  },
+  {
+   "end": 7.125,
+   "start": 6.997,
+   "word": "the"
+  },
+  {
+   "end": 7.381,
+   "start": 7.168,
+   "word": "Swift"
+  },
+  {
+   "end": 7.637,
+   "start": 7.552,
+   "word": "that"
+  },
+  {
+   "end": 8.402585034013605,
+   "start": 7.68,
+   "word": "answers."
+  },
+  {
+   "end": 8.489795918367347,
+   "start": 8.489795918367347,
+   "word": "<end>"
+  }
+ ],
+ "words": [
+  {
+   "end": 0.469,
+   "start": 0.299,
+   "word": "Its"
+  },
+  {
+   "end": 0.981,
+   "start": 0.512,
+   "word": "discovery"
+  },
+  {
+   "end": 1.365,
+   "start": 1.109,
+   "word": "skill"
+  },
+  {
+   "end": 1.749,
+   "start": 1.493,
+   "word": "reads"
+  },
+  {
+   "end": 1.92,
+   "start": 1.835,
+   "word": "your"
+  },
+  {
+   "end": 2.304,
+   "start": 1.963,
+   "word": "app's"
+  },
+  {
+   "end": 2.56,
+   "start": 2.347,
+   "word": "screens"
+  },
+  {
+   "end": 2.816,
+   "start": 2.773,
+   "word": "and"
+  },
+  {
+   "end": 3.072,
+   "start": 2.859,
+   "word": "data"
+  },
+  {
+   "end": 3.669,
+   "start": 3.243,
+   "word": "layer,"
+  },
+  {
+   "end": 4.181,
+   "start": 3.883,
+   "word": "finds"
+  },
+  {
+   "end": 4.309,
+   "start": 4.224,
+   "word": "the"
+  },
+  {
+   "end": 4.5227,
+   "start": 4.352,
+   "word": "actions"
+  },
+  {
+   "end": 4.992,
+   "start": 4.821,
+   "word": "people"
+  },
+  {
+   "end": 5.205,
+   "start": 5.12,
+   "word": "would"
+  },
+  {
+   "end": 5.419,
+   "start": 5.248,
+   "word": "ask"
+  },
+  {
+   "end": 5.76,
+   "start": 5.547,
+   "word": "Siri"
+  },
+  {
+   "end": 6.165,
+   "start": 5.845,
+   "word": "for,"
+  },
+  {
+   "end": 6.656,
+   "start": 6.315,
+   "word": "and"
+  },
+  {
+   "end": 6.869,
+   "start": 6.699,
+   "word": "writes"
+  },
+  {
+   "end": 7.125,
+   "start": 6.997,
+   "word": "the"
+  },
+  {
+   "end": 7.381,
+   "start": 7.168,
+   "word": "Swift"
+  },
+  {
+   "end": 7.637,
+   "start": 7.552,
+   "word": "that"
+  },
+  {
+   "end": 8.402585034013605,
+   "start": 7.68,
+   "word": "answers."
+  }
+ ],
+ "text": "Its discovery skill reads your app's screens and data layer, finds the actions people would ask Siri for, and writes the Swift that answers."
+}

@@ -1,0 +1,160 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: radial-gradient(90% 60% at 50% 35%, #2c241b 0%, #1b1712 70%); }
+    #syrup-canvas { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+  </style>
+  <div id="root" data-composition-id="syrup" data-width="1080" data-height="1920">
+    <canvas id="syrup-canvas" width="1080" height="1920"></canvas>
+  </div>
+  <script>
+    // Background for the whole video: a thin drizzle of syrup pours from above the frame and slowly fills the
+    // background, reaching the top as the video ends. Everything is drawn from the video time, so any frame can be
+    // rendered on its own.
+    const tl = gsap.timeline({ paused: true });
+    const host = document.querySelector('[data-composition-id="syrup"][data-start]');
+    const START = Number(host.dataset.start);
+    const DURATION = Number(host.dataset.duration);
+    tl.to({}, { duration: DURATION }, 0);
+
+    const POUR_AT = 11.752;  // seconds into this layer when "Syrup" is first said (written by retime_v4.py)
+    const FALL = 1.1;        // the first drizzle takes this long to reach the bottom
+    const BOTTOM = 1975;     // pool surface before it starts rising (just below the frame)
+    const TOP = -70;         // pool surface at the very end (just above the frame)
+    const MAXP = 36;
+
+    const canvas = document.getElementById("syrup-canvas");
+    const gl = canvas.getContext("webgl", { antialias: false, preserveDrawingBuffer: true, premultipliedAlpha: false });
+    const VERT = "attribute vec2 a; varying vec2 v; void main(){ v = a * 0.5 + 0.5; gl_Position = vec4(a, 0.0, 1.0); }";
+    const FRAG = `
+precision highp float;
+varying vec2 v;
+uniform vec4 uA[${MAXP}];
+uniform vec4 uR[${MAXP}];
+uniform int uN;
+uniform float uLevel, uTime;
+const vec2 RES = vec2(1080.0, 1920.0);
+
+float smin(float a, float b, float k) { float h = clamp(0.5 + 0.5 * (b - a) / k, 0.0, 1.0); return mix(b, a, h) - k * h * (1.0 - h); }
+float cap(vec2 p, vec2 a, vec2 b, float ra, float rb) {
+  vec2 pa = p - a, ba = b - a;
+  if (dot(ba, ba) < 1.0) return length(pa) - max(ra, rb);
+  float h = clamp(dot(pa, ba) / dot(ba, ba), 0.0, 1.0);
+  return length(pa - ba * h) - mix(ra, rb, h);
+}
+float surface(float x) {
+  return uLevel + 7.0 * sin(x * 0.009 + uTime * 0.9) + 4.0 * sin(x * 0.023 - uTime * 1.3);
+}
+float field(vec2 p) {
+  float d = 1e5;
+  for (int i = 0; i < ${MAXP}; i++) {
+    if (i >= uN) break;
+    float c = cap(p, uA[i].xy, uA[i].zw, uR[i].x, uR[i].y);
+    d = uR[i].z < 1.0 ? min(d, c) : smin(d, c, uR[i].z);
+  }
+  return smin(d, surface(p.x) - p.y, 26.0);
+}
+vec3 backdrop(vec2 p) {
+  vec2 q = (p - vec2(540.0, 672.0)) / vec2(972.0, 1152.0);
+  return mix(vec3(0.173, 0.141, 0.106), vec3(0.106, 0.090, 0.071), clamp(length(q) / 0.7, 0.0, 1.0));
+}
+float bevel(vec2 p) { float b = clamp(-field(p) / 9.0, 0.0, 1.0); return sqrt(b * (2.0 - b)); }
+void main() {
+  vec2 p = vec2(v.x, 1.0 - v.y) * RES;
+  float d = field(p);
+  float inside = smoothstep(1.0, -1.0, d);
+  vec3 back = backdrop(p);
+  if (inside <= 0.0) { gl_FragColor = vec4(back, 1.0); return; }
+
+  // depth below the pool surface: thin syrup near the top glows gold, deep syrup is dark amber
+  float depth = max(p.y - surface(p.x), 0.0);
+  vec3 deep = mix(vec3(0.46, 0.22, 0.045), vec3(0.17, 0.075, 0.016), smoothstep(0.0, 700.0, depth));
+  // slow light shafts inside the syrup
+  float shafts = 0.5 + 0.5 * sin(p.x * 0.012 + sin(p.y * 0.004 + uTime * 0.3) * 2.0);
+  deep *= 0.9 + 0.12 * shafts * exp(-depth / 900.0);
+
+  // rounded edges: normals from the bevel give highlights on the drizzle and the meniscus
+  float t = bevel(p);
+  vec2 e = vec2(1.5, 0.0);
+  vec2 grad = vec2(bevel(p + e.xy) - bevel(p - e.xy), bevel(p + e.yx) - bevel(p - e.yx)) / 3.0;
+  vec3 n = normalize(vec3(-grad * 9.0, 1.0));
+  vec3 H = normalize(normalize(vec3(-0.45, -0.62, 0.65)) + vec3(0.0, 0.0, 1.0));
+  float spec = pow(max(dot(n, H), 0.0), 60.0) * 0.9;
+  float rim = pow(1.0 - n.z, 2.0) * 0.35;
+
+  // the drizzle itself is thin, so it reads as gold over the backdrop
+  vec3 thin = back * exp(-vec3(0.16, 0.7, 2.3) * (0.2 + 0.8 * t)) + vec3(0.98, 0.58, 0.16) * (0.42 + 0.38 * t);
+  float inPool = smoothstep(-2.0, 6.0, p.y - surface(p.x));
+  vec3 col = mix(thin, deep, inPool);
+  // gold line where light comes through the top of the pool
+  col += vec3(0.95, 0.55, 0.15) * 0.55 * exp(-depth / 26.0) * inPool;
+  col += vec3(1.0, 0.95, 0.85) * (spec + rim) * mix(0.35, 1.0, inPool);
+  // the drizzle is barely there: a faint gold thread over the backdrop
+  float opacity = mix(0.2, 1.0, inPool);
+  gl_FragColor = vec4(mix(back, col, inside * opacity), 1.0);
+}`;
+    const shader = (type, src) => { const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); return s; };
+    const prog = gl.createProgram();
+    gl.attachShader(prog, shader(gl.VERTEX_SHADER, VERT));
+    gl.attachShader(prog, shader(gl.FRAGMENT_SHADER, FRAG));
+    gl.linkProgram(prog);
+    gl.useProgram(prog);
+    gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
+    const attr = gl.getAttribLocation(prog, "a");
+    gl.enableVertexAttribArray(attr);
+    gl.vertexAttribPointer(attr, 2, gl.FLOAT, false, 0, 0);
+    const U = { A: gl.getUniformLocation(prog, "uA"), R: gl.getUniformLocation(prog, "uR"), N: gl.getUniformLocation(prog, "uN"),
+      level: gl.getUniformLocation(prog, "uLevel"), time: gl.getUniformLocation(prog, "uTime") };
+
+    const clamp = (x) => Math.min(Math.max(x, 0), 1);
+    const level = (t) => BOTTOM - (BOTTOM - TOP) * clamp((t - POUR_AT - FALL) / (DURATION - POUR_AT - FALL));
+
+    // The drizzle: a thin stream that sways, thins as it falls, and coils where it lands.
+    function drizzle(t, surf) {
+      const caps = [];
+      const sway = (y) => 860 + 40 * Math.sin(t * 0.35) + 20 * Math.sin(y * 0.004 - t * 1.6) + 6 * Math.sin(y * 0.017 - t * 3.1);
+      const pour = t - POUR_AT;
+      if (pour < 0) return caps;
+      const head = Math.min(-60 + (surf + 120) * Math.pow(clamp(pour / FALL), 2), surf + 10);
+      const N = 28;
+      for (let i = 0; i < N; i++) {
+        const y0 = -60 + (head + 60) * (i / N), y1 = -60 + (head + 60) * ((i + 1) / N);
+        const r = (y) => 6.5 - 3.0 * clamp((y + 60) / 1980) + 0.6 * Math.sin(y * 0.045 - t * 9);
+        caps.push([sway(y0), y0, sway(y1), y1, r(y0), r(y1), 0]);
+      }
+      if (pour < FALL) {
+        caps.push([sway(head), head, sway(head), head, 6.5, 6.5, 6]);
+      } else {
+        // rope coiling on the surface where the drizzle lands
+        const x = sway(surf);
+        for (let k = 0; k < 4; k++) {
+          const a = t * 6.5 + k * 1.6;
+          caps.push([x + 22 * Math.cos(a), surf - 6 - 5 * k, x + 22 * Math.cos(a + 1.2), surf - 9 - 5 * k, 5, 5, 10]);
+        }
+      }
+      return caps;
+    }
+
+    function draw(t) {
+      const surf = level(t);
+      const caps = drizzle(t, surf).slice(0, MAXP);
+      const A = new Float32Array(MAXP * 4), R = new Float32Array(MAXP * 4);
+      caps.forEach(([ax, ay, bx, by, ra, rb, k], i) => { A.set([ax, ay, bx, by], i * 4); R.set([ra, rb, k, 0], i * 4); });
+      gl.uniform4fv(U.A, A);
+      gl.uniform4fv(U.R, R);
+      gl.uniform1i(U.N, caps.length);
+      gl.uniform1f(U.level, surf);
+      gl.uniform1f(U.time, t);
+      gl.viewport(0, 0, 1080, 1920);
+      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    }
+
+    window.addEventListener("hf-seek", (e) => {
+      const time = e.detail.time;
+      if (time < START || time >= START + DURATION) return;
+      draw(time - START);
+    });
+    draw(0);
+    window.__timelines["syrup"] = tl;
+  </script>
+</template>

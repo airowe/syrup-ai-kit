@@ -1,0 +1,371 @@
+{
+ "audio_url": "https://resource2.heygen.ai/text_to_speech/1a6ff32a1c3240ab874d33136ab2335f/776f9d2ff401499a8f1f2bcb4ca46004/id=4523b1af-89be-498a-ac79-9f498efe9e10.mp3",
+ "duration": 12.8,
+ "engine": "orca",
+ "request_id": "ac575a25ae1b44c8b4be844020b93604",
+ "word_timestamps": [
+  {
+   "end": 0.0,
+   "start": 0.0,
+   "word": "<start>"
+  },
+  {
+   "end": 0.6827,
+   "start": 0.299,
+   "word": "Syrup"
+  },
+  {
+   "end": 1.0667,
+   "start": 0.768,
+   "word": "AI"
+  },
+  {
+   "end": 1.365,
+   "start": 1.109,
+   "word": "Kit"
+  },
+  {
+   "end": 1.7067,
+   "start": 1.579,
+   "word": "makes"
+  },
+  {
+   "end": 2.304,
+   "start": 1.92,
+   "word": "Siri"
+  },
+  {
+   "end": 2.773,
+   "start": 2.432,
+   "word": "adoption"
+  },
+  {
+   "end": 3.456,
+   "start": 3.029,
+   "word": "smooth"
+  },
+  {
+   "end": 3.712,
+   "start": 3.627,
+   "word": "for"
+  },
+  {
+   "end": 4.288,
+   "start": 3.755,
+   "word": "developers,"
+  },
+  {
+   "end": 4.736,
+   "start": 4.48,
+   "word": "and"
+  },
+  {
+   "end": 4.9067,
+   "start": 4.779,
+   "word": "gives"
+  },
+  {
+   "end": 5.12,
+   "start": 4.992,
+   "word": "your"
+  },
+  {
+   "end": 5.376,
+   "start": 5.163,
+   "word": "users"
+  },
+  {
+   "end": 5.717,
+   "start": 5.632,
+   "word": "a"
+  },
+  {
+   "end": 6.0587,
+   "start": 5.76,
+   "word": "much"
+  },
+  {
+   "end": 6.528,
+   "start": 6.187,
+   "word": "richer"
+  },
+  {
+   "end": 7.467,
+   "start": 6.613,
+   "word": "experience."
+  },
+  {
+   "end": 7.893,
+   "start": 7.765,
+   "word": "It's"
+  },
+  {
+   "end": 8.021,
+   "start": 7.936,
+   "word": "an"
+  },
+  {
+   "end": 8.576,
+   "start": 8.064,
+   "word": "open-source"
+  },
+  {
+   "end": 8.8747,
+   "start": 8.704,
+   "word": "repo"
+  },
+  {
+   "end": 9.216,
+   "start": 9.088,
+   "word": "you"
+  },
+  {
+   "end": 9.344,
+   "start": 9.259,
+   "word": "can"
+  },
+  {
+   "end": 9.5147,
+   "start": 9.387,
+   "word": "add"
+  },
+  {
+   "end": 9.728,
+   "start": 9.6,
+   "word": "by"
+  },
+  {
+   "end": 10.112,
+   "start": 9.771,
+   "word": "hand,"
+  },
+  {
+   "end": 10.709,
+   "start": 10.283,
+   "word": "or"
+  },
+  {
+   "end": 11.0507,
+   "start": 10.923,
+   "word": "give"
+  },
+  {
+   "end": 11.221,
+   "start": 11.136,
+   "word": "to"
+  },
+  {
+   "end": 11.3067,
+   "start": 11.264,
+   "word": "your"
+  },
+  {
+   "end": 11.605,
+   "start": 11.349,
+   "word": "coding"
+  },
+  {
+   "end": 11.9467,
+   "start": 11.691,
+   "word": "agent"
+  },
+  {
+   "end": 12.075,
+   "start": 12.032,
+   "word": "as"
+  },
+  {
+   "end": 12.16,
+   "start": 12.117,
+   "word": "a"
+  },
+  {
+   "end": 12.738,
+   "start": 12.203,
+   "word": "plugin."
+  },
+  {
+   "end": 12.8,
+   "start": 12.8,
+   "word": "<end>"
+  }
+ ],
+ "words": [
+  {
+   "end": 0.6827,
+   "start": 0.299,
+   "word": "Syrup"
+  },
+  {
+   "end": 1.0667,
+   "start": 0.768,
+   "word": "AI"
+  },
+  {
+   "end": 1.365,
+   "start": 1.109,
+   "word": "Kit"
+  },
+  {
+   "end": 1.7067,
+   "start": 1.579,
+   "word": "makes"
+  },
+  {
+   "end": 2.304,
+   "start": 1.92,
+   "word": "Siri"
+  },
+  {
+   "end": 2.773,
+   "start": 2.432,
+   "word": "adoption"
+  },
+  {
+   "end": 3.456,
+   "start": 3.029,
+   "word": "smooth"
+  },
+  {
+   "end": 3.712,
+   "start": 3.627,
+   "word": "for"
+  },
+  {
+   "end": 4.288,
+   "start": 3.755,
+   "word": "developers,"
+  },
+  {
+   "end": 4.736,
+   "start": 4.48,
+   "word": "and"
+  },
+  {
+   "end": 4.9067,
+   "start": 4.779,
+   "word": "gives"
+  },
+  {
+   "end": 5.12,
+   "start": 4.992,
+   "word": "your"
+  },
+  {
+   "end": 5.376,
+   "start": 5.163,
+   "word": "users"
+  },
+  {
+   "end": 5.717,
+   "start": 5.632,
+   "word": "a"
+  },
+  {
+   "end": 6.0587,
+   "start": 5.76,
+   "word": "much"
+  },
+  {
+   "end": 6.528,
+   "start": 6.187,
+   "word": "richer"
+  },
+  {
+   "end": 7.467,
+   "start": 6.613,
+   "word": "experience."
+  },
+  {
+   "end": 7.893,
+   "start": 7.765,
+   "word": "It's"
+  },
+  {
+   "end": 8.021,
+   "start": 7.936,
+   "word": "an"
+  },
+  {
+   "end": 8.576,
+   "start": 8.064,
+   "word": "open-source"
+  },
+  {
+   "end": 8.8747,
+   "start": 8.704,
+   "word": "repo"
+  },
+  {
+   "end": 9.216,
+   "start": 9.088,
+   "word": "you"
+  },
+  {
+   "end": 9.344,
+   "start": 9.259,
+   "word": "can"
+  },
+  {
+   "end": 9.5147,
+   "start": 9.387,
+   "word": "add"
+  },
+  {
+   "end": 9.728,
+   "start": 9.6,
+   "word": "by"
+  },
+  {
+   "end": 10.112,
+   "start": 9.771,
+   "word": "hand,"
+  },
+  {
+   "end": 10.709,
+   "start": 10.283,
+   "word": "or"
+  },
+  {
+   "end": 11.0507,
+   "start": 10.923,
+   "word": "give"
+  },
+  {
+   "end": 11.221,
+   "start": 11.136,
+   "word": "to"
+  },
+  {
+   "end": 11.3067,
+   "start": 11.264,
+   "word": "your"
+  },
+  {
+   "end": 11.605,
+   "start": 11.349,
+   "word": "coding"
+  },
+  {
+   "end": 11.9467,
+   "start": 11.691,
+   "word": "agent"
+  },
+  {
+   "end": 12.075,
+   "start": 12.032,
+   "word": "as"
+  },
+  {
+   "end": 12.16,
+   "start": 12.117,
+   "word": "a"
+  },
+  {
+   "end": 12.738,
+   "start": 12.203,
+   "word": "plugin."
+  }
+ ],
+ "text": "Syrup AI Kit makes Siri adoption smooth for developers, and gives your users a much richer experience. It's an open-source repo you can add by hand, or give to your coding agent as a plugin."
+}

@@ -1,0 +1,162 @@
+[
+ {
+  "start_s": 0.699,
+  "end_s": 2.448,
+  "text": "Let's be honest: Siri hasn't"
+ },
+ {
+  "start_s": 2.448,
+  "end_s": 3.301,
+  "text": "been much help with your"
+ },
+ {
+  "start_s": 3.301,
+  "end_s": 3.805,
+  "text": "apps."
+ },
+ {
+  "start_s": 5.085,
+  "end_s": 6.962,
+  "text": "Apple's rebuilding it as Siri"
+ },
+ {
+  "start_s": 6.962,
+  "end_s": 8.925,
+  "text": "AI. It's in preview for"
+ },
+ {
+  "start_s": 8.925,
+  "end_s": 10.29,
+  "text": "developers now, and it can"
+ },
+ {
+  "start_s": 10.29,
+  "end_s": 11.741,
+  "text": "call your app's tools, if"
+ },
+ {
+  "start_s": 11.741,
+  "end_s": 13.106,
+  "text": "you set them up right."
+ },
+ {
+  "start_s": 13.106,
+  "end_s": 14.728,
+  "text": "Most developers won't, at least"
+ },
+ {
+  "start_s": 14.728,
+  "end_s": 15.192,
+  "text": "for a while."
+ },
+ {
+  "start_s": 16.483,
+  "end_s": 18.616,
+  "text": "Syrup AI Kit makes Siri"
+ },
+ {
+  "start_s": 18.616,
+  "end_s": 20.963,
+  "text": "adoption smooth for developers, and"
+ },
+ {
+  "start_s": 20.963,
+  "end_s": 22.371,
+  "text": "gives your users a much"
+ },
+ {
+  "start_s": 22.371,
+  "end_s": 24.888,
+  "text": "richer experience. It's an open-source"
+ },
+ {
+  "start_s": 24.888,
+  "end_s": 25.955,
+  "text": "repo you can add by"
+ },
+ {
+  "start_s": 25.955,
+  "end_s": 27.533,
+  "text": "hand, or give to your"
+ },
+ {
+  "start_s": 27.533,
+  "end_s": 28.922,
+  "text": "coding agent as a plugin."
+ },
+ {
+  "start_s": 29.533,
+  "end_s": 31.197,
+  "text": "Its discovery skill reads your"
+ },
+ {
+  "start_s": 31.197,
+  "end_s": 33.117,
+  "text": "app's screens and data layer,"
+ },
+ {
+  "start_s": 33.117,
+  "end_s": 34.482,
+  "text": "finds the actions people would"
+ },
+ {
+  "start_s": 34.482,
+  "end_s": 36.231,
+  "text": "ask Siri for, and writes"
+ },
+ {
+  "start_s": 36.231,
+  "end_s": 37.637,
+  "text": "the Swift that answers."
+ },
+ {
+  "start_s": 38.23,
+  "end_s": 40.107,
+  "text": "Set up right, each tool"
+ },
+ {
+  "start_s": 40.107,
+  "end_s": 41.302,
+  "text": "tells Siri what your app"
+ },
+ {
+  "start_s": 41.302,
+  "end_s": 42.71,
+  "text": "can do, giving people a"
+ },
+ {
+  "start_s": 42.71,
+  "end_s": 43.819,
+  "text": "bunch of new ways to"
+ },
+ {
+  "start_s": 43.819,
+  "end_s": 44.25,
+  "text": "use it."
+ },
+ {
+  "start_s": 45.001,
+  "end_s": 45.97,
+  "text": "Here's what that looks like"
+ },
+ {
+  "start_s": 45.97,
+  "end_s": 47.289,
+  "text": "in an open-source app like"
+ },
+ {
+  "start_s": 47.289,
+  "end_s": 47.972,
+  "text": "Wikipedia."
+ },
+ {
+  "start_s": 67.628,
+  "end_s": 70.102,
+  "text": "Syrup AI Kit. Get your"
+ },
+ {
+  "start_s": 70.102,
+  "end_s": 71.736,
+  "text": "apps ready for Siri AI."
+ }
+]

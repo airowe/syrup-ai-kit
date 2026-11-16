@@ -1,0 +1,92 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    #close-body { position: absolute; inset: 0; }
+    #close-tag { position: absolute; left: 90px; top: 350px; width: 900px; color: #f4ead8; font: 700 54px/1.1 "Outfit", sans-serif; }
+    #close-tag span { color: #e0892c; }
+    .close-box { position: absolute; left: 90px; width: 900px; padding: 26px 34px; border-radius: 26px; background: #f4ead8; color: #2a2118; }
+    .close-label { font: 700 28px/1 "Inter", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #8a6a4a; }
+    .close-code { margin-top: 14px; font: 600 30px/1.35 "JetBrains Mono", monospace; white-space: pre; }
+    #close-repo { top: 480px; }
+    #close-agent { top: 640px; }
+    #close-expo { top: 800px; }
+    #close-small { position: absolute; left: 90px; top: 1010px; width: 900px; color: #c9b89c; font: 500 28px/1.3 "Inter", sans-serif; }
+    #close-canvas { position: absolute; left: 0; top: 0; }
+    #close-name { width: 900px; height: 130px; color: #f4ead8; font: 800 120px/1 "Outfit", sans-serif; letter-spacing: -0.03em; }
+    #close-name span { color: #e0892c; }
+  </style>
+  <div id="root" data-composition-id="close" data-width="1080" data-height="1920">
+    <div id="close-body" class="clip" data-start="0" data-duration="7.9">
+      <div id="close-tag" class="clip" data-start="0" data-duration="7.9">Get your apps ready for <span>Siri AI.</span></div>
+      <div id="close-repo" class="close-box clip" data-start="0" data-duration="7.9">
+        <div class="close-label">Open-source repo</div>
+        <div class="close-code">github.com/airowe/syrup-ai-kit</div>
+      </div>
+      <div id="close-agent" class="close-box clip" data-start="0" data-duration="7.9">
+        <div class="close-label">Coding agent plugin</div>
+        <div class="close-code">/plugin install syrup-ai-kit@syrup-ai-kit</div>
+      </div>
+      <div id="close-expo" class="close-box clip" data-start="0" data-duration="7.9">
+        <div class="close-label">Expo</div>
+        <div class="close-code">npx expo install expo-syrup-ai-kit
+  expo-app-intents</div>
+      </div>
+      <div id="close-small" class="clip" data-start="0" data-duration="7.9">Not affiliated with or endorsed by Apple. Siri and iPhone are trademarks of Apple Inc., registered in the U.S. and other countries and regions.<br><br>Example built on Wikipedia's open-source iOS app. Not affiliated with the Wikimedia Foundation.</div>
+    </div>
+    <canvas id="close-canvas" width="1080" height="1920" layoutsubtree>
+      <div id="close-name">Syrup <span>AI Kit</span></div>
+    </canvas>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#close-repo", { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "back.out(1.4)" }, 1.55);
+    tl.fromTo("#close-agent", { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "back.out(1.4)" }, 1.8);
+    tl.fromTo("#close-expo", { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "back.out(1.4)" }, 2.05);
+    tl.fromTo("#close-small", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 2.3);
+    tl.fromTo("#close-tag", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" }, 3.15);
+    tl.to({}, { duration: 7.9 }, 0);
+
+    const host = document.querySelector('[data-composition-id="close"][data-start]');
+    const START = Number(host.dataset.start);
+    const DURATION = Number(host.dataset.duration);
+    const canvas = document.getElementById("close-canvas");
+    const name = document.getElementById("close-name");
+    const ctx = canvas.getContext("2d");
+    let painted = null;
+
+    function meltIn(el, x0, y0, width, t, start, duration) {
+      const p = Math.min(Math.max((t - start) / duration, 0), 1);
+      if (p <= 0) return;
+      const STRIPS = 40;
+      const strip = width / STRIPS;
+      for (let i = 0; i < STRIPS; i++) {
+        const delay = ((Math.sin(i * 2.3) + 1) / 2) * 0.4;
+        const q = Math.min(Math.max((p - delay) / 0.6, 0), 1);
+        if (q <= 0) continue;
+        const settle = 1 - Math.pow(1 - q, 3);
+        ctx.save();
+        ctx.beginPath();
+        ctx.rect(x0 + i * strip, 0, strip + 0.6, 1920);
+        ctx.clip();
+        ctx.globalAlpha = Math.min(1, q * 1.6);
+        ctx.drawElementImage(el, x0, y0 - 60 * (1 - settle));
+        ctx.restore();
+      }
+    }
+
+    canvas.onpaint = () => {
+      const t = tl.time();
+      ctx.reset();
+      meltIn(name, 90, 200, 900, t, 1.0, 1.2);
+      painted?.();
+    };
+
+    window.addEventListener("hf-seek", (e) => {
+      const time = e.detail.time;
+      if (time < START || time >= START + DURATION) return;
+      e.detail.waitUntil(new Promise((resolve) => { painted = resolve; canvas.requestPaint(); setTimeout(resolve, 400); }));
+    });
+    canvas.requestPaint();
+    window.__timelines["close"] = tl;
+  </script>
+</template>
