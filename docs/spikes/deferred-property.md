@@ -24,6 +24,7 @@ Source: `iPhoneOS27.3.sdk/.../AppIntents.swiftmodule/arm64e-apple-ios.swiftinter
 
 - There's no `customIndexingKey:` form of `@DeferredProperty`. `@ComputedProperty` has one, and so does the underlying `EntityProperty(identifier:…customIndexingKey:asyncGetter:)` init.
 - New in 27.3: `IntentVisibility` (`.default` and `.internal`) and a per-property `authenticationPolicy`. For example, a status could require an unlocked device without gating the whole entity.
+  - **Known issue in 27.3 beta (190573761):** Siri AI might not request an unlock before it displays an `AppEntity`, or an entity property, whose `authenticationPolicy` requires one. Until Apple fixes it, don't rely on `authenticationPolicy` alone to keep a deferred value off a locked screen. Source: [iOS & iPadOS 27.3 Beta Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27_3-release-notes), App Intents > Known Issues.
 - The `EntityProperty` inits that take an `asyncGetter:` are the runtime form the macro targets (27.0 for entity-valued properties, 27.3 for general ones).
 - Macro rules, from the diagnostics in `libAppIntentsMacros.dylib`: stored properties are rejected, and synchronous getters get "use @ComputedProperty". `@DeferredProperty` needs an `async` getter, and `get async throws` compiles.
 - The macro adds a stored peer (`_status`), which **replaces the struct's memberwise init**, so write an `init(id:)` yourself. This was the first compile error.
