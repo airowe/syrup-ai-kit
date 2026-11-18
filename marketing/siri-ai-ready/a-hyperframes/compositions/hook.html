@@ -1,0 +1,120 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: radial-gradient(90% 60% at 50% 35%, #2c241b 0%, #1b1712 70%); }
+    #hook-canvas { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+  </style>
+  <div id="root" data-composition-id="hook" data-width="1080" data-height="1920">
+    <canvas id="hook-canvas" width="1080" height="1920"></canvas>
+  </div>
+  <script>
+    // The old Siri waveform listens to the narration, goes flat after "…with your apps." and is swiped away.
+    const host = document.querySelector('[data-composition-id="hook"][data-start]');
+    const START = Number(host.dataset.start);
+    const DURATION = Number(host.dataset.duration);
+    const tl = gsap.timeline({ paused: true });
+    tl.to({}, { duration: DURATION }, 0);
+
+    // loudness of narration/hook.mp3 at 30 fps; the line starts 0.4 s into the video
+    const VOICE_AT = 0.4;
+    const LOUDNESS = [0.03,0.03,0.04,0.04,0.03,0.05,0.06,0.07,0.06,0.05,0.48,0.69,0.33,0.04,0.13,0.04,0.34,0.73,0.62,0.42,0.29,0.25,0.19,0.18,0.13,0.07,0.08,0.04,0.02,0.1,0.08,0.03,0.08,0.11,0.09,0.08,0.05,0.03,0.07,0.06,0.04,0.06,0.39,0.97,1,0.88,0.79,0.82,0.78,0.62,0.44,0.18,0.26,0.24,0.44,0.33,0.08,0.49,0.45,0.22,0.14,0.7,0.62,0.38,0.35,0.37,0.42,0.26,0.06,0.17,0.14,0.25,0.28,0.45,0.49,0.43,0.04,0.05,0.11,0.3,0.23,0.11,0.33,0.43,0.4,0.37,0.09,0.34,0.25,0.19,0.16,0.08,0.04,0.03,0.11,0.12,0.06,0.05,0.06,0.05,0.01,0.03,0.04,0.03,0.01,0.01,0.01];
+    const FLATTEN = [3.85, 4.15];   // after "apps." the wave dies down to a line
+    const SWIPE = [4.2, 4.62];      // then the line is flicked off to the left
+    const MID_Y = 860;
+    const MAX_AMP = 250;
+    const COLOURS = [[255, 52, 140], [20, 175, 255], [40, 230, 150]];
+
+    const canvas = document.getElementById("hook-canvas");
+    const ctx = canvas.getContext("2d");
+    const clamp = (x) => Math.min(Math.max(x, 0), 1);
+    const smooth = (a, b, x) => { const p = clamp((x - a) / (b - a)); return p * p * (3 - 2 * p); };
+
+    function loudness(t) {
+      const f = (t - VOICE_AT) * 30;
+      let sum = 0, weight = 0;
+      for (let k = -3; k <= 3; k++) {
+        const i = Math.floor(f) + k;
+        const w = 4 - Math.abs(k);
+        sum += (LOUDNESS[i] ?? 0) * w;
+        weight += w;
+      }
+      return sum / weight;
+    }
+
+    function level(t) {
+      const fadeIn = smooth(0, 0.5, t);
+      return (0.07 * fadeIn + 0.93 * Math.min(1, loudness(t) * 1.6)) * (1 - smooth(FLATTEN[0], FLATTEN[1], t));
+    }
+
+    function lobe(t, c, j, amp) {
+      const cx = 540 + 250 * Math.sin(t * (0.8 + c * 0.25) + j * 2.4 + c * 1.3);
+      const w = 120 + 50 * Math.sin(t * 1.2 + c * 0.9 + j * 1.7);
+      const a = amp * (0.55 + 0.45 * Math.sin(t * 2.3 + c * 1.9 + j * 3.1));
+      const top = [];
+      for (let x = 0; x <= 1080; x += 4) {
+        const u = (x - cx) / w;
+        top.push([x, a * Math.exp(-u * u) * (0.65 + 0.35 * Math.cos(u * 2.6 - t * 5 - c))]);
+      }
+      return top;
+    }
+
+    function wave(t, amp, alpha) {
+      ctx.save();
+      ctx.globalAlpha = alpha;
+      ctx.globalCompositeOperation = "lighter";
+      COLOURS.forEach(([r, g, b], c) => {
+        for (let j = 0; j < 2; j++) {
+          const top = lobe(t, c, j, amp);
+          ctx.beginPath();
+          ctx.moveTo(0, MID_Y);
+          top.forEach(([x, y]) => ctx.lineTo(x, MID_Y - y));
+          for (let i = top.length - 1; i >= 0; i--) ctx.lineTo(top[i][0], MID_Y + top[i][1]);
+          ctx.closePath();
+          const fill = ctx.createLinearGradient(0, MID_Y - MAX_AMP, 0, MID_Y + MAX_AMP);
+          fill.addColorStop(0, `rgba(${r},${g},${b},0)`);
+          fill.addColorStop(0.5, `rgba(${r},${g},${b},0.75)`);
+          fill.addColorStop(1, `rgba(${r},${g},${b},0)`);
+          ctx.fillStyle = fill;
+          ctx.fill();
+        }
+      });
+      // the bright white line through the middle, fading out at both ends
+      const line = ctx.createLinearGradient(0, 0, 1080, 0);
+      line.addColorStop(0, "rgba(255,255,255,0)");
+      line.addColorStop(0.2, "rgba(255,255,255,0.9)");
+      line.addColorStop(0.8, "rgba(255,255,255,0.9)");
+      line.addColorStop(1, "rgba(255,255,255,0)");
+      ctx.globalCompositeOperation = "source-over";
+      ctx.fillStyle = line;
+      ctx.fillRect(0, MID_Y - 1.5, 1080, 3);
+      ctx.restore();
+    }
+
+    function draw(t) {
+      ctx.clearRect(0, 0, 1080, 1920);
+      const amp = MAX_AMP * level(t);
+      const p = clamp((t - SWIPE[0]) / (SWIPE[1] - SWIPE[0]));
+      const offset = (p) => -1500 * Math.pow(p, 2.4) + 40 * Math.sin(Math.PI * clamp(p * 3)) ;
+      const fade = 1 - smooth(0.7, 1, p);
+      // a short motion trail while it is flicked away
+      for (let k = 3; k >= 0; k--) {
+        const q = clamp(p - k * 0.05);
+        if (k > 0 && p <= 0) continue;
+        ctx.save();
+        ctx.translate(offset(q), 0);
+        ctx.translate(540, MID_Y);
+        ctx.rotate(-0.05 * Math.pow(q, 2));
+        ctx.translate(-540, -MID_Y);
+        wave(t, amp, fade * (k === 0 ? 1 : 0.22 / k));
+        ctx.restore();
+      }
+    }
+
+    window.addEventListener("hf-seek", (e) => {
+      const time = e.detail.time;
+      if (time < START || time >= START + DURATION) return;
+      draw(time - START);
+    });
+    draw(0);
+    window.__timelines["hook"] = tl;
+  </script>
+</template>

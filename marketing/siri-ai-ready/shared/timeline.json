@@ -1,0 +1,57 @@
+[
+ {
+  "id": "hook",
+  "start_s": 0.4,
+  "end_s": 3.979,
+  "file": "narration/hook.mp3",
+  "text": "Let's be honest: Siri hasn't been much help with your apps."
+ },
+ {
+  "id": "why",
+  "start_s": 4.829,
+  "end_s": 15.435,
+  "file": "narration/why.mp3",
+  "text": "Apple's rebuilding it as Siri AI. It's in preview for developers now, and it can call your app's tools, if you set them up right. Most developers won't, at least for a while."
+ },
+ {
+  "id": "package",
+  "start_s": 16.184,
+  "end_s": 28.984,
+  "file": "narration/package.mp3",
+  "text": "Syrup AI Kit makes Siri adoption smooth for developers, and gives your users a much richer experience. It's an open-source repo you can add by hand, or give to your coding agent as a plugin."
+ },
+ {
+  "id": "discover",
+  "start_s": 29.234,
+  "end_s": 37.724,
+  "file": "narration/discover.mp3",
+  "text": "Its discovery skill reads your app's screens and data layer, finds the actions people would ask Siri for, and writes the Swift that answers."
+ },
+ {
+  "id": "setup",
+  "start_s": 37.974,
+  "end_s": 44.478,
+  "file": "narration/setup.mp3",
+  "text": "Set up right, each tool tells Siri what your app can do, giving people a bunch of new ways to use it."
+ },
+ {
+  "id": "wiki",
+  "start_s": 44.729,
+  "end_s": 48.229,
+  "file": "narration/wiki.mp3",
+  "text": ""
+ },
+ {
+  "id": "clip",
+  "start_s": 48.329,
+  "end_s": 66.979,
+  "file": "../../../footage/answer-links/siri-phone-clip-tight.mp4"
+ },
+ {
+  "id": "close",
+  "start_s": 67.329,
+  "end_s": 71.979,
+  "file": "narration/close.mp3",
+  "text": "Syrup AI Kit. Get your apps ready for Siri AI."
+ }
+]

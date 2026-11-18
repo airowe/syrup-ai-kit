@@ -1,0 +1,241 @@
+{
+ "audio_url": "https://resource2.heygen.ai/text_to_speech/1a6ff32a1c3240ab874d33136ab2335f/776f9d2ff401499a8f1f2bcb4ca46004/id=c821212e-71b0-4e1b-8912-92dc0c3c826d.mp3",
+ "duration": 6.504489795918367,
+ "engine": "orca",
+ "request_id": "b534a6e617904d62b316ad3485df831c",
+ "word_timestamps": [
+  {
+   "end": 0.0,
+   "start": 0.0,
+   "word": "<start>"
+  },
+  {
+   "end": 0.512,
+   "start": 0.256,
+   "word": "Set"
+  },
+  {
+   "end": 0.6827,
+   "start": 0.555,
+   "word": "up"
+  },
+  {
+   "end": 1.131,
+   "start": 0.768,
+   "word": "right,"
+  },
+  {
+   "end": 1.621,
+   "start": 1.323,
+   "word": "each"
+  },
+  {
+   "end": 2.005,
+   "start": 1.792,
+   "word": "tool"
+  },
+  {
+   "end": 2.304,
+   "start": 2.133,
+   "word": "tells"
+  },
+  {
+   "end": 2.645,
+   "start": 2.432,
+   "word": "Siri"
+  },
+  {
+   "end": 2.901,
+   "start": 2.816,
+   "word": "what"
+  },
+  {
+   "end": 3.072,
+   "start": 2.944,
+   "word": "your"
+  },
+  {
+   "end": 3.2427,
+   "start": 3.115,
+   "word": "app"
+  },
+  {
+   "end": 3.456,
+   "start": 3.328,
+   "word": "can"
+  },
+  {
+   "end": 3.904,
+   "start": 3.499,
+   "word": "do,"
+  },
+  {
+   "end": 4.224,
+   "start": 4.139,
+   "word": "giving"
+  },
+  {
+   "end": 4.5227,
+   "start": 4.395,
+   "word": "people"
+  },
+  {
+   "end": 4.693,
+   "start": 4.651,
+   "word": "a"
+  },
+  {
+   "end": 4.949,
+   "start": 4.736,
+   "word": "bunch"
+  },
+  {
+   "end": 5.1627,
+   "start": 5.12,
+   "word": "of"
+  },
+  {
+   "end": 5.376,
+   "start": 5.205,
+   "word": "new"
+  },
+  {
+   "end": 5.5467,
+   "start": 5.419,
+   "word": "ways"
+  },
+  {
+   "end": 5.8027,
+   "start": 5.675,
+   "word": "to"
+  },
+  {
+   "end": 6.016,
+   "start": 5.845,
+   "word": "use"
+  },
+  {
+   "end": 6.275873015873016,
+   "start": 6.059,
+   "word": "it."
+  },
+  {
+   "end": 6.504489795918367,
+   "start": 6.504489795918367,
+   "word": "<end>"
+  }
+ ],
+ "words": [
+  {
+   "end": 0.512,
+   "start": 0.256,
+   "word": "Set"
+  },
+  {
+   "end": 0.6827,
+   "start": 0.555,
+   "word": "up"
+  },
+  {
+   "end": 1.131,
+   "start": 0.768,
+   "word": "right,"
+  },
+  {
+   "end": 1.621,
+   "start": 1.323,
+   "word": "each"
+  },
+  {
+   "end": 2.005,
+   "start": 1.792,
+   "word": "tool"
+  },
+  {
+   "end": 2.304,
+   "start": 2.133,
+   "word": "tells"
+  },
+  {
+   "end": 2.645,
+   "start": 2.432,
+   "word": "Siri"
+  },
+  {
+   "end": 2.901,
+   "start": 2.816,
+   "word": "what"
+  },
+  {
+   "end": 3.072,
+   "start": 2.944,
+   "word": "your"
+  },
+  {
+   "end": 3.2427,
+   "start": 3.115,
+   "word": "app"
+  },
+  {
+   "end": 3.456,
+   "start": 3.328,
+   "word": "can"
+  },
+  {
+   "end": 3.904,
+   "start": 3.499,
+   "word": "do,"
+  },
+  {
+   "end": 4.224,
+   "start": 4.139,
+   "word": "giving"
+  },
+  {
+   "end": 4.5227,
+   "start": 4.395,
+   "word": "people"
+  },
+  {
+   "end": 4.693,
+   "start": 4.651,
+   "word": "a"
+  },
+  {
+   "end": 4.949,
+   "start": 4.736,
+   "word": "bunch"
+  },
+  {
+   "end": 5.1627,
+   "start": 5.12,
+   "word": "of"
+  },
+  {
+   "end": 5.376,
+   "start": 5.205,
+   "word": "new"
+  },
+  {
+   "end": 5.5467,
+   "start": 5.419,
+   "word": "ways"
+  },
+  {
+   "end": 5.8027,
+   "start": 5.675,
+   "word": "to"
+  },
+  {
+   "end": 6.016,
+   "start": 5.845,
+   "word": "use"
+  },
+  {
+   "end": 6.275873015873016,
+   "start": 6.059,
+   "word": "it."
+  }
+ ],
+ "text": "Set up right, each tool tells Siri what your app can do, giving people a bunch of new ways to use it."
+}

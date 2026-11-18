@@ -1,0 +1,39 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    #setup-head { position: absolute; left: 70px; top: 190px; width: 940px; color: #f4ead8; font: 800 72px/1.05 "Outfit", sans-serif; letter-spacing: -0.02em; }
+    #setup-head span { color: #e0892c; }
+    #setup-tools { position: absolute; left: 70px; top: 330px; width: 940px; }
+    .setup-tool { position: relative; margin-bottom: 20px; padding: 24px 32px; border-radius: 24px; background: #f4ead8; color: #2a2118; display: flex; justify-content: space-between; align-items: center; }
+    .setup-name { font: 800 34px/1 "JetBrains Mono", monospace; }
+    .setup-tells { font: 600 30px/1 "Inter", sans-serif; color: #8a6a4a; }
+    #setup-ways { position: absolute; left: 70px; top: 760px; width: 940px; display: flex; flex-wrap: wrap; gap: 18px; }
+    .setup-say { padding: 20px 28px; border-radius: 30px 30px 30px 8px; background: #3a3026; color: #f4ead8; font: 600 36px/1.15 "Inter", sans-serif; }
+    .setup-say.hot { background: #e0892c; color: #1b1712; }
+  </style>
+  <div id="root" data-composition-id="setup" data-width="1080" data-height="1920">
+    <div id="setup-head" class="clip" data-start="0" data-duration="6.755">Set up <span>right</span></div>
+    <div id="setup-tools" class="clip" data-start="0" data-duration="6.755">
+      <div class="setup-tool"><div class="setup-name">GetProductDetails</div><div class="setup-tells">price, stock</div></div>
+      <div class="setup-tool"><div class="setup-name">SearchProducts</div><div class="setup-tells">search</div></div>
+      <div class="setup-tool"><div class="setup-name">AddToCart</div><div class="setup-tells">add, with a yes</div></div>
+    </div>
+    <div id="setup-ways" class="clip" data-start="0" data-duration="6.755">
+      <div class="setup-say hot">"How much is product 12?"</div>
+      <div class="setup-say">"Is it in stock?"</div>
+      <div class="setup-say">"Find wireless earbuds."</div>
+      <div class="setup-say hot">"Search for a sofa."</div>
+      <div class="setup-say">"Add earbuds to my cart."</div>
+      <div class="setup-say">"Add a sofa to my cart."</div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#setup-head", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" }, 0.15);
+    tl.fromTo("#setup-tools .setup-tool", { x: -60, opacity: 0 }, { x: 0, opacity: 1, duration: 0.4, ease: "back.out(1.5)", stagger: 0.22 }, 1.35);
+    tl.fromTo("#setup-ways .setup-say", { scale: 0.6, y: 30, opacity: 0 }, { scale: 1, y: 0, opacity: 1, duration: 0.35, ease: "back.out(1.8)", stagger: 0.2, transformOrigin: "left bottom" }, 4.2);
+    tl.to(["#setup-head", "#setup-tools", "#setup-ways"], { opacity: 0, y: -20, duration: 0.3, ease: "power2.in" }, 6.4);
+    tl.to({}, { duration: 6.755 }, 0);
+    window.__timelines["setup"] = tl;
+  </script>
+</template>

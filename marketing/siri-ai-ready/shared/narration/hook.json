@@ -1,0 +1,131 @@
+{
+ "audio_url": "https://resource2.heygen.ai/text_to_speech/1a6ff32a1c3240ab874d33136ab2335f/776f9d2ff401499a8f1f2bcb4ca46004/id=167f9f7c-11dd-47e0-acf5-e06fb5bd6741.mp3",
+ "duration": 3.5787755102040815,
+ "engine": "orca",
+ "request_id": "33835a66c82c45d4ab13190938c6bb45",
+ "word_timestamps": [
+  {
+   "end": 0.0,
+   "start": 0.0,
+   "word": "<start>"
+  },
+  {
+   "end": 0.512,
+   "start": 0.299,
+   "word": "Let's"
+  },
+  {
+   "end": 0.64,
+   "start": 0.555,
+   "word": "be"
+  },
+  {
+   "end": 1.045,
+   "start": 0.683,
+   "word": "honest:"
+  },
+  {
+   "end": 1.5787,
+   "start": 1.28,
+   "word": "Siri"
+  },
+  {
+   "end": 2.005,
+   "start": 1.749,
+   "word": "hasn't"
+  },
+  {
+   "end": 2.133,
+   "start": 2.048,
+   "word": "been"
+  },
+  {
+   "end": 2.304,
+   "start": 2.176,
+   "word": "much"
+  },
+  {
+   "end": 2.56,
+   "start": 2.389,
+   "word": "help"
+  },
+  {
+   "end": 2.7307,
+   "start": 2.645,
+   "word": "with"
+  },
+  {
+   "end": 2.8587,
+   "start": 2.773,
+   "word": "your"
+  },
+  {
+   "end": 3.405,
+   "start": 2.901,
+   "word": "apps."
+  },
+  {
+   "end": 3.5787755102040815,
+   "start": 3.5787755102040815,
+   "word": "<end>"
+  }
+ ],
+ "words": [
+  {
+   "end": 0.512,
+   "start": 0.299,
+   "word": "Let's"
+  },
+  {
+   "end": 0.64,
+   "start": 0.555,
+   "word": "be"
+  },
+  {
+   "end": 1.045,
+   "start": 0.683,
+   "word": "honest:"
+  },
+  {
+   "end": 1.5787,
+   "start": 1.28,
+   "word": "Siri"
+  },
+  {
+   "end": 2.005,
+   "start": 1.749,
+   "word": "hasn't"
+  },
+  {
+   "end": 2.133,
+   "start": 2.048,
+   "word": "been"
+  },
+  {
+   "end": 2.304,
+   "start": 2.176,
+   "word": "much"
+  },
+  {
+   "end": 2.56,
+   "start": 2.389,
+   "word": "help"
+  },
+  {
+   "end": 2.7307,
+   "start": 2.645,
+   "word": "with"
+  },
+  {
+   "end": 2.8587,
+   "start": 2.773,
+   "word": "your"
+  },
+  {
+   "end": 3.405,
+   "start": 2.901,
+   "word": "apps."
+  }
+ ],
+ "text": "Let's be honest: Siri hasn't been much help with your apps."
+}
