@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1350" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      :root {
+        --ground: #1b1712;
+        --paper: #f4ead8;
+        --ink: #2a2118;
+        --syrup: #e0892c;
+        --muted: #c9b89c;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1350px; overflow: hidden; background: var(--ground); }
+      #root { position: relative; width: 100%; height: 100%; font-family: "Inter", sans-serif; }
+      #ground { position: absolute; inset: 0; background: var(--ground); }
+      .scene { position: absolute; inset: 0; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="26" data-width="1080" data-height="1350">
+      <div id="ground"></div>
+      <div id="f1" class="scene clip" data-composition-id="f1" data-composition-src="compositions/f1.html" data-start="0" data-duration="8.2" data-track-index="1" data-track-kind="graphics" style="z-index:2"></div>
+      <div id="f2" class="scene clip" data-composition-id="f2" data-composition-src="compositions/f2.html" data-start="8.2" data-duration="3.7" data-track-index="1" data-track-kind="graphics" style="z-index:2"></div>
+      <div id="f3" class="scene clip" data-composition-id="f3" data-composition-src="compositions/f3.html" data-start="11.9" data-duration="5.6" data-track-index="1" data-track-kind="graphics" style="z-index:2"></div>
+      <div id="f4" class="scene clip" data-composition-id="f4" data-composition-src="compositions/f4.html" data-start="17.5" data-duration="4" data-track-index="1" data-track-kind="graphics" style="z-index:2"></div>
+      <div id="f5" class="scene clip" data-composition-id="f5" data-composition-src="compositions/f5.html" data-start="21.5" data-duration="4.5" data-track-index="1" data-track-kind="graphics" style="z-index:3"></div>
+
+      <audio id="voice-followers" class="clip" data-start="0.6" data-duration="7.55" data-track-index="2" data-volume="0.9" src="assets/voice-followers.m4a"></audio>
+      <audio id="voice-found" class="clip" data-start="8.6" data-duration="2.65" data-track-index="2" data-volume="0.9" src="assets/voice-found.m4a"></audio>
+      <audio id="voice-confirm" class="clip" data-start="13.3" data-duration="3.1" data-track-index="2" data-volume="0.9" src="assets/voice-confirm.m4a"></audio>
+      <audio id="music" class="clip" data-start="0" data-duration="26" data-track-index="3" data-volume="0.75" data-fade-in="0.3" data-fade-out="1.5" src="assets/music-bed.m4a"></audio>
+      <audio id="yes-click" class="clip" data-start="16.75" data-duration="0.37" data-track-index="4" data-volume="0.7" src="assets/sfx/click-soft.mp3"></audio>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      tl.to({}, { duration: 26 });
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

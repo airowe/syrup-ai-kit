@@ -16,9 +16,9 @@
     <div data-hf-id="hf-67qw" id="s3-kicker" class="kicker clip" data-start="0" data-duration="6.2">Then</div>
     <div data-hf-id="hf-ukyi" id="s3-ask" class="ask clip" data-start="0" data-duration="6.2" data-var-text="ask3">“Open the first one.”</div>
     <div data-hf-id="hf-ma41" id="s3-card" class="card">
-      <video data-hf-id="hf-hes9" id="s3-video" class="clip" data-start="0.3" data-duration="5.9" data-track-index="0" src="assets/t-confirm.mp4" muted playsinline></video>
+      <video data-hf-id="hf-hes9" id="s3-video" class="clip" data-start="1.65" data-duration="4.55" data-track-index="0" src="assets/t-confirm.mp4" muted playsinline></video>
     </div>
-    <div data-hf-id="hf-qq3b" id="s3-label" class="label clip" data-start="1.6" data-duration="4.6">Siri checks before it acts</div>
+    <div data-hf-id="hf-qq3b" id="s3-label" class="label clip" data-start="2.1" data-duration="4.1">Siri checks before it acts</div>
     <div data-hf-id="hf-jede" id="s3-yes" class="clip" data-start="4.95" data-duration="1.25">
       <div data-hf-id="hf-18ql" id="s3-yes-kicker">You tap</div>
       <div data-hf-id="hf-053n" id="s3-yes-chip">Yes</div>
@@ -27,8 +27,8 @@
   <script>
     const tl = gsap.timeline({ paused: true });
     tl.fromTo("#s3-ask", { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 0.45, ease: "power2.out" }, 0);
-    tl.fromTo("#s3-card", { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 0.3);
-    tl.fromTo("#s3-label", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 1.6);
+    tl.fromTo("#s3-card", { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 1.5);
+    tl.fromTo("#s3-label", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 2.1);
     tl.fromTo("#s3-yes-chip", { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: "back.out(2)" }, 4.95);
     tl.fromTo("#s3-yes-kicker", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 4.95);
     tl.to({}, { duration: 6.2 }, 0);

@@ -1,0 +1,30 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    #f5-name { position: absolute; left: 90px; top: 310px; width: 900px; color: #f4ead8; font: 800 120px/1 "Outfit", sans-serif; letter-spacing: -0.03em; }
+    #f5-name span, #f5-tag span { color: #e0892c; }
+    #f5-tag { position: absolute; left: 90px; top: 460px; width: 900px; color: #f4ead8; font: 700 54px/1.1 "Outfit", sans-serif; }
+    #f5-repo { position: absolute; left: 90px; top: 580px; width: 900px; padding: 26px 34px; border-radius: 26px; background: #f4ead8; color: #2a2118; }
+    .f5-label { font: 700 28px/1 "Inter", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #8a6a4a; }
+    .f5-code { margin-top: 14px; font: 600 34px/1.35 "JetBrains Mono", monospace; white-space: pre; }
+    #f5-small { position: absolute; left: 90px; top: 790px; width: 900px; color: #c9b89c; font: 500 28px/1.3 "Inter", sans-serif; }
+  </style>
+  <div id="root" data-composition-id="f5" data-width="1080" data-height="1350">
+    <div id="f5-name" class="clip" data-start="0" data-duration="4.5">Syrup <span>AI Kit</span></div>
+    <div id="f5-tag" class="clip" data-start="0" data-duration="4.5">Get your apps ready for <span>Siri AI.</span></div>
+    <div id="f5-repo" class="clip" data-start="0" data-duration="4.5">
+      <div class="f5-label">Open-source repo</div>
+      <div class="f5-code">github.com/airowe/syrup-ai-kit</div>
+    </div>
+    <div id="f5-small" class="clip" data-start="0" data-duration="4.5">Not affiliated with or endorsed by Apple. Siri and iPhone are trademarks of Apple Inc., registered in the U.S. and other countries and regions.<br><br>Example built on Bluesky's open-source app. Not affiliated with or endorsed by Bluesky Social, PBC.</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#f5-name", { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 0.5, ease: "power3.inOut" }, 0);
+    tl.fromTo("#f5-tag", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" }, 0.35);
+    tl.fromTo("#f5-repo", { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "back.out(1.4)" }, 0.6);
+    tl.fromTo("#f5-small", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 0.9);
+    tl.to({}, { duration: 4.5 }, 0);
+    window.__timelines["f5"] = tl;
+  </script>
+</template>
