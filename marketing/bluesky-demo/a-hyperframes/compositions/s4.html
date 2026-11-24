@@ -1,0 +1,35 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    .kicker { position: absolute; left: 90px; top: 200px; font: 700 28px/1 "Inter", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #c9b89c; }
+    .ask { position: absolute; left: 90px; top: 250px; width: 900px; color: #f4ead8; font: 700 62px/1.14 "Outfit", sans-serif; letter-spacing: -0.01em; }
+    .card { position: absolute; left: 90px; width: 900px; padding: 46px 52px; border-radius: 56px; background: #000; box-shadow: 0 0 0 1px rgba(244, 234, 216, 0.3); }
+    .card video { display: block; width: 796px; height: auto; -webkit-mask-image: linear-gradient(to right, transparent 0, #000 1%, #000 99%, transparent 100%), linear-gradient(to bottom, transparent 0, #000 2%, #000 98%, transparent 100%); -webkit-mask-composite: source-in; mask-image: linear-gradient(to right, transparent 0, #000 1%, #000 99%, transparent 100%), linear-gradient(to bottom, transparent 0, #000 2%, #000 98%, transparent 100%); mask-composite: intersect; }
+    .label { position: absolute; left: 96px; font: 600 34px/1.2 "Inter", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #f4ead8; }
+    #s4-line { position: absolute; left: 90px; top: 200px; width: 900px; color: #f4ead8; font: 700 62px/1.14 "Outfit", sans-serif; letter-spacing: -0.01em; }
+    #s4-line span { color: #e0892c; }
+    #s4-card { top: 420px; }
+    #s4-profile { position: absolute; left: 90px; top: 800px; width: 900px; height: 344px; border-radius: 40px; overflow: hidden; box-shadow: 0 0 0 1px rgba(244, 234, 216, 0.35); }
+    #s4-profile video { display: block; width: 900px; height: 344px; }
+    #s4-label { top: 1200px; color: #c9b89c; width: 890px; }
+  </style>
+  <div data-hf-id="hf-q5j8" id="root" data-composition-id="s4" data-width="1080" data-height="1920">
+    <div data-hf-id="hf-gsdf" id="s4-line" class="clip" data-start="0" data-duration="10.2" data-var-text="payoff">Bluesky opens<br data-hf-id="hf-x5px"><span data-hf-id="hf-hdyp">the profile.</span></div>
+    <div data-hf-id="hf-vljo" id="s4-card" class="card">
+      <video data-hf-id="hf-i4rl" id="s4-video" class="clip" data-start="2" data-duration="8.2" data-track-index="0" src="assets/t-opening.mp4" muted playsinline></video>
+    </div>
+    <div data-hf-id="hf-0igw" id="s4-profile">
+      <video data-hf-id="hf-5oeu" id="s4-pvideo" class="clip" data-start="5.4" data-duration="4.8" data-track-index="1" src="assets/t-profile.mp4" muted playsinline></video>
+    </div>
+    <div data-hf-id="hf-ul78" id="s4-label" class="label clip" data-start="6.4" data-duration="3.8">All through the app's own tools</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s4-line", { clipPath: "inset(0 0 100% 0)" }, { clipPath: "inset(0 0 0% 0)", duration: 0.45, ease: "power2.out" }, 0);
+    tl.fromTo("#s4-card", { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 2);
+    tl.fromTo("#s4-profile", { y: 120, opacity: 0, scale: 0.96 }, { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "power3.out" }, 5.4);
+    tl.fromTo("#s4-label", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 6.4);
+    tl.to({}, { duration: 10.2 }, 0);
+    window.__timelines["s4"] = tl;
+  </script>
+</template>

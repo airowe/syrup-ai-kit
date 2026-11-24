@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      :root {
+        --ground: #1b1712;
+        --paper: #f4ead8;
+        --ink: #2a2118;
+        --syrup: #e0892c;
+        --muted: #c9b89c;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--ground); }
+      #root { position: relative; width: 100%; height: 100%; font-family: "Inter", sans-serif; }
+      #ground { position: absolute; inset: 0; background: var(--ground); }
+      .scene { position: absolute; inset: 0; }
+    </style>
+  </head>
+  <body>
+    <div data-hf-id="hf-rf5k" id="root" data-composition-id="main" data-start="0" data-duration="40.6" data-width="1080" data-height="1920">
+      <div data-hf-id="hf-7hg0" id="ground"></div>
+      <div data-hf-id="hf-9zi9" id="s1" class="scene clip" data-composition-id="s1" data-composition-src="compositions/s1.html" data-start="0" data-duration="8.8" data-track-index="1" data-track-kind="graphics" style="z-index:2"></div>
+      <div data-hf-id="hf-dx3e" id="s2" class="scene clip" data-composition-id="s2" data-composition-src="compositions/s2.html" data-start="8.8" data-duration="8.8" data-track-index="1" data-track-kind="graphics" style="z-index:2"></div>
+      <div data-hf-id="hf-mstb" id="s3" class="scene clip" data-composition-id="s3" data-composition-src="compositions/s3.html" data-start="17.6" data-duration="6.2" data-track-index="1" data-track-kind="graphics" style="z-index:2"></div>
+      <div data-hf-id="hf-a2yw" id="s4" class="scene clip" data-composition-id="s4" data-composition-src="compositions/s4.html" data-start="23.8" data-duration="10.2" data-track-index="1" data-track-kind="graphics" style="z-index:2"></div>
+      <div data-hf-id="hf-yk75" id="close" class="scene clip" data-composition-id="close" data-composition-src="compositions/close.html" data-start="34" data-duration="6.6" data-track-index="1" data-track-kind="graphics" style="z-index:3"></div>
+
+      <audio data-hf-id="hf-tlei" id="voice-followers" class="clip" data-start="0.75" data-duration="7.55" data-track-index="2" data-volume="0.9" src="assets/voice-followers.m4a"></audio>
+      <audio data-hf-id="hf-8ly8" id="voice-accounts" class="clip" data-start="9.25" data-duration="8.1" data-track-index="2" data-volume="0.9" src="assets/voice-accounts.m4a"></audio>
+      <audio data-hf-id="hf-9ex8" id="voice-confirm" class="clip" data-start="19.1" data-duration="3.1" data-track-index="2" data-volume="0.9" src="assets/voice-confirm.m4a"></audio>
+      <audio data-hf-id="hf-0fh2" id="voice-opening" class="clip" data-start="24" data-duration="8.45" data-track-index="2" data-volume="0.9" src="assets/voice-opening.m4a"></audio>
+      <audio data-hf-id="hf-n3v7" id="music" class="clip" data-start="0" data-duration="40.6" data-track-index="3" data-volume="0.75" data-fade-in="0.3" data-fade-out="1.5" src="assets/music-bed.m4a"></audio>
+      <audio data-hf-id="hf-86ya" id="yes-click" class="clip" data-start="22.55" data-duration="0.37" data-track-index="4" data-volume="0.7" src="assets/sfx/click-soft.mp3"></audio>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      tl.to({}, { duration: 40.6 });
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
