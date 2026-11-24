@@ -1,0 +1,28 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    .kicker { position: absolute; left: 90px; top: 200px; font: 700 28px/1 "Inter", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #c9b89c; }
+    .ask { position: absolute; left: 90px; top: 250px; width: 900px; color: #f4ead8; font: 700 62px/1.14 "Outfit", sans-serif; letter-spacing: -0.01em; }
+    .card { position: absolute; left: 90px; width: 900px; padding: 46px 52px; border-radius: 56px; background: #000; box-shadow: 0 0 0 1px rgba(244, 234, 216, 0.3); }
+    .card video { display: block; width: 796px; height: auto; -webkit-mask-image: linear-gradient(to right, transparent 0, #000 1%, #000 99%, transparent 100%), linear-gradient(to bottom, transparent 0, #000 2%, #000 98%, transparent 100%); -webkit-mask-composite: source-in; mask-image: linear-gradient(to right, transparent 0, #000 1%, #000 99%, transparent 100%), linear-gradient(to bottom, transparent 0, #000 2%, #000 98%, transparent 100%); mask-composite: intersect; }
+    .label { position: absolute; left: 96px; font: 600 34px/1.2 "Inter", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #f4ead8; }
+    #s2-card { top: 460px; }
+    #s2-label { top: 1010px; color: #e0892c; }
+  </style>
+  <div data-hf-id="hf-bmd6" id="root" data-composition-id="s2" data-width="1080" data-height="1920">
+    <div data-hf-id="hf-n2vb" id="s2-kicker" class="kicker clip" data-start="0" data-duration="8.8">Then</div>
+    <div data-hf-id="hf-fgi6" id="s2-ask" class="ask clip" data-start="0" data-duration="8.8" data-var-text="ask2">“Find Bluesky accounts about astronomy.”</div>
+    <div data-hf-id="hf-1ufi" id="s2-card" class="card">
+      <video data-hf-id="hf-aiit" id="s2-video" class="clip" data-start="0.3" data-duration="8.5" data-track-index="0" src="assets/t-accounts.mp4" muted playsinline></video>
+    </div>
+    <div data-hf-id="hf-mhyj" id="s2-label" class="label clip" data-start="3.6" data-duration="5.2">Real accounts, real handles</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s2-ask", { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 0.5, ease: "power2.out" }, 0);
+    tl.fromTo("#s2-card", { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 0.3);
+    tl.fromTo("#s2-label", { x: -40, opacity: 0 }, { x: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 3.6);
+    tl.to({}, { duration: 8.8 }, 0);
+    window.__timelines["s2"] = tl;
+  </script>
+</template>
