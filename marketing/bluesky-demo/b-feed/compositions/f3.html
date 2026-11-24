@@ -1,0 +1,37 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    .kicker { position: absolute; left: 90px; top: 310px; font: 700 28px/1 "Inter", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #c9b89c; }
+    .ask { position: absolute; left: 90px; top: 360px; width: 900px; color: #f4ead8; font: 700 62px/1.14 "Outfit", sans-serif; letter-spacing: -0.01em; }
+    .card { position: absolute; left: 90px; width: 900px; padding: 46px 52px; border-radius: 56px; background: #000; box-shadow: 0 0 0 1px rgba(244, 234, 216, 0.3); }
+    .card video { display: block; width: 796px; height: auto; -webkit-mask-image: linear-gradient(to right, transparent 0, #000 1%, #000 99%, transparent 100%), linear-gradient(to bottom, transparent 0, #000 2%, #000 98%, transparent 100%); -webkit-mask-composite: source-in; mask-image: linear-gradient(to right, transparent 0, #000 1%, #000 99%, transparent 100%), linear-gradient(to bottom, transparent 0, #000 2%, #000 98%, transparent 100%); mask-composite: intersect; }
+    .label { position: absolute; left: 96px; font: 600 34px/1.2 "Inter", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #e0892c; }
+    #f3-card { top: 490px; }
+    #f3-label { top: 920px; }
+    #f3-yes { position: absolute; left: 90px; top: 1000px; display: flex; align-items: center; gap: 24px; }
+    #f3-yes-kicker { font: 700 28px/1 "Inter", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #c9b89c; }
+    #f3-yes-chip { padding: 22px 44px; border-radius: 999px; background: #f4ead8; color: #2a2118; font: 700 62px/1 "Outfit", sans-serif; }
+  </style>
+  <div id="root" data-composition-id="f3" data-width="1080" data-height="1350">
+    <div id="f3-kicker" class="kicker clip" data-start="0" data-duration="5.6">Then</div>
+    <div id="f3-ask" class="ask clip" data-start="0" data-duration="5.6" data-var-text="ask3">“Open the first one.”</div>
+    <div id="f3-card" class="card">
+      <video id="f3-video" class="clip" data-start="1.55" data-duration="4.05" data-track-index="0" src="assets/t-confirm.mp4" muted playsinline></video>
+    </div>
+    <div id="f3-label" class="label clip" data-start="2.0" data-duration="3.6">Siri checks before it acts</div>
+    <div id="f3-yes" class="clip" data-start="4.85" data-duration="0.75">
+      <div id="f3-yes-kicker">You tap</div>
+      <div id="f3-yes-chip">Yes</div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#f3-ask", { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 0.4, ease: "power2.out" }, 0);
+    tl.fromTo("#f3-card", { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" }, 1.4);
+    tl.fromTo("#f3-label", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 2.0);
+    tl.fromTo("#f3-yes-chip", { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2)" }, 4.85);
+    tl.fromTo("#f3-yes-kicker", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 4.85);
+    tl.to({}, { duration: 5.6 }, 0);
+    window.__timelines["f3"] = tl;
+  </script>
+</template>

@@ -36,3 +36,19 @@ Source: one continuous iPhone screen recording with system audio (`ScreenRecordi
 ## Render
 
 - `bluesky-demo.mp4`: 1080×1920, 40.6 s, H.264/AAC, −16.4 LUFS, peaks at −1.5 dBFS (measured on the file).
+
+## Fix (2026-11-24): confirmation clip
+
+`t-confirm.mp4` started at 49.8 s in the recording. That's about 1.3 s before Siri's confirmation card appears, so the first second showed the loading state with the recorder's avatar. It now starts at 51.15 s, and scene 3's card enters at 1.5 s, as Siri starts speaking. Both renders were re-checked frame by frame across that scene.
+
+## Feed cut (4:5)
+
+`b-feed/` renders `bluesky-demo-feed.mp4`: 1080×1350, 26 s, −16.4 LUFS, peaks at −1.5 dBFS. It's for the LinkedIn and Bluesky posts. It uses the same footage and voice:
+
+- the follower count;
+- "I found three Bluesky accounts for astronomy";
+- the confirmation and "Yes";
+- the profile;
+- a short end card.
+
+The small print shows for 3.5 s, under the reading-time guideline. It's also in the post.
